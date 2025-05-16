@@ -11,11 +11,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import environ
-import os
-
-env = environ.Env()
-environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-gr1_a2frr_11btli3tb2+k%row3b8f@swh0!4nf1f$^fwxl57o'
+SECRET_KEY = 'django-insecure-^6vwcn=f$xd1p6)1mabj40au-3!qo7g@_x-3s(fn4tw)uh2avu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,11 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'drf_yasg',
-    'corsheaders',
-    'listings',
-
 ]
 
 MIDDLEWARE = [
@@ -60,8 +50,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'alx_travel_app.urls'
-MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
-CORS_ALLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
     {
@@ -86,15 +74,10 @@ WSGI_APPLICATION = 'alx_travel_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 
 # Password validation
